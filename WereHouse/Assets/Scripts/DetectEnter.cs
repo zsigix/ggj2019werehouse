@@ -17,7 +17,7 @@ public class DetectEnter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             GlobalFunctions.ResetVictimCount();
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene(1);
         }
     }
 }
