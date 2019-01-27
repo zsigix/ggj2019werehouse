@@ -32,6 +32,22 @@ public class WallCrushAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && !isCrushing)
         {
             isCrushing = true;
+            // Nervous changes
+            foreach(Collider2D coll in Physics2D.OverlapCircleAll(gameObject.transform.position, 3))
+            {
+                if (coll.tag == "Victim")
+                {
+                    coll.gameObject.GetComponent<VictimControls>().SetNervous();
+                }
+            }
+            // Spook changes
+            foreach(Collider2D coll in Physics2D.OverlapCircleAll(gameObject.transform.position, 1))
+            {
+                if (coll.tag == "Victim")
+                {
+                    coll.gameObject.GetComponent<VictimControls>().SetSpook();
+                }
+            }
         }
         if (isCrushing)
         {
