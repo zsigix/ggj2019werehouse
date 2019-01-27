@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeElapsed : MonoBehaviour
 {
@@ -18,5 +19,9 @@ public class TimeElapsed : MonoBehaviour
     {
         totalTime -= Time.deltaTime;
         textInstance.text = Mathf.FloorToInt(totalTime).ToString();
+        if (totalTime <= 0)
+        {
+            SceneManager.LoadScene("EndGameScene");
+        }
     }
 }
