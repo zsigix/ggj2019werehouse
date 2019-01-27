@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using rho;
 
 public class WallCrushAnimation : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class WallCrushAnimation : MonoBehaviour
                         bloodGush.Stop();
                         bloodGush.Play();
                         Object.Destroy(coll.gameObject);
+                        GlobalEventHandler.SendEvent(new GameEvents.VictimDied{});
                     }
                 }
             }

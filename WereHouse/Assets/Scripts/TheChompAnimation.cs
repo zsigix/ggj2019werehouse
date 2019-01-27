@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using rho;
 
 public class TheChompAnimation : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class TheChompAnimation : MonoBehaviour
                         bloodGush.Stop();
                         bloodGush.Play();
                         Object.Destroy(coll.gameObject);
+                        GlobalEventHandler.SendEvent(new GameEvents.VictimDied{});
                     }
                 }
             }
