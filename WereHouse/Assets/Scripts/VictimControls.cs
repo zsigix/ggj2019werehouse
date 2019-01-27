@@ -62,7 +62,9 @@ public class VictimControls : MonoBehaviour
         if (moveDirection != Vector3.zero) 
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
         }
+
+        _origPos = gameObject.transform.position;
     }
 }
